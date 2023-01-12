@@ -1,10 +1,11 @@
-time=int(input( ))
-entry=list(map(int, input().split( )))
-exitt=list(map(int, input().split( )))
-present=0
-total_guests=0
-for i in range(time):
-    present += entry[i]-exit[i]
-    if total_guests < present:
-        total_guests = present
-print(total_guests, end = " ")
+def cruise(T,E,L):
+    maxGuests=0
+    guests=0
+    for i in range(T):
+        guests+=E[i]-L[i]
+        maxGuests=max(maxGuests,guests)
+    return maxGuests
+T=5
+E=[7,0,5,1,3]
+L=[1,2,1,3,4]
+print(cruise(T,E,L))
