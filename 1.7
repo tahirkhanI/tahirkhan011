@@ -1,23 +1,16 @@
-def squaredsum(num):
-    sum = 0
-    while(num):
-        sum += (num%10) ** 2
-        num = num//10
-    return sum
+def isahappynumber(num):
+    rem=sum=0
+    while(num>0):
+        rem=num%10
+        sum=sum+(rem*rem)
+        num=num//10
+        return sum
+num=int(input("enter any number"))
+result=num
+while(result!=1 and result!=4):
+    result=isahappynumber(result)
+if(result==1):
+    print(str(num)+"is a happy number")
 
-def happynumber(num):
-    record  = set()
-    while(1):
-        num = squaredsum(num)
-        if num==1:
-            return True
-        if num in record:
-            return False
-        record.add(num)
-
-num = int(input("Enter a number: "))
-if happynumber(num):
-    print(num," is a happy Number")
-else:
-    print(num," is not a happy number")
-    
+elif(result==4):
+    print(str(num)+"is not a happy number")
